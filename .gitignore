@@ -1,0 +1,6 @@
+__pycache__/
+Project API.iml
+.idea/
+.venv/
+.vscode/
+*.pkl
