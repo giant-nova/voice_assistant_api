@@ -2,7 +2,8 @@ import numpy as np
 from flask import Flask, request, jsonify
 import pickle
 from bot import BertClassifier, process
-from flask_restful import Api
+import os
+
 
 model = BertClassifier()
 with open('Model/classifier.pkl', 'rb') as f:
@@ -23,4 +24,4 @@ def predict():
     return jsonify({'response': result})
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0", port = 5000)
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
